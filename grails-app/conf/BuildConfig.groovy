@@ -60,7 +60,7 @@ grails.project.dependency.resolution = {
         runtime ":resources:1.2-RC1"
 		compile ":jquery:1.7.1"
 		compile ":resources:1.2-RC1"
-		compile ":shiro:1.1.5"
+		compile ":shiro:1.1.4"
 		compile ":mail:1.0"
         build ":tomcat:$grailsVersion"
 		test (":spock:0.6") {changing = false}
