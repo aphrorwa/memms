@@ -9,6 +9,8 @@
 	<classpathentry kind="src" path="grails-app/taglib"/>
 	<classpathentry kind="src" path="test/integration"/>
 	<classpathentry kind="src" path="test/unit"/>
+	<classpathentry kind="src" path=".plugin-src-yammer-metrics-2.1.2-1-grails-app-i18n"/>
+	<classpathentry kind="src" path=".plugin-src-yammer-metrics-2.1.2-1-src-groovy"/>
 	<classpathentry kind="src" path=".plugin-src-webxml-1.4.1-grails-app-conf"/>
 	<classpathentry kind="src" path=".plugin-src-webxml-1.4.1-src-groovy"/>
 	<classpathentry kind="src" path=".plugin-src-shiro-1.1.5-grails-app-conf"/>
@@ -37,8 +39,7 @@
 	<classpathentry kind="src" path=".plugin-src-jquery-1.7.1-grails-app-services"/>
 	<classpathentry kind="src" path=".plugin-src-jquery-1.7.1-grails-app-taglib"/>
 	<classpathentry kind="src" path=".plugin-src-jquery-1.7.1-src-groovy"/>
-	<classpathentry kind="src" path=".plugin-src-i18n-fields-0.7.2-SNAPSHOT-grails-app-domain"/>
-	<classpathentry kind="src" path=".plugin-src-i18n-fields-0.7.2-SNAPSHOT-src-groovy"/>
+	<classpathentry kind="src" path=".plugin-src-i18n-fields-0.6.1-src-groovy"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/commons-beanutils/commons-beanutils/jars/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/commons-el/commons-el/jars/commons-el-1.0.jar"/>
@@ -181,6 +182,7 @@
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.springframework/spring-tx/jars/spring-tx-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.springframework/spring-web/jars/spring-web-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.springframework/spring-webmvc/jars/spring-webmvc-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.slf4j/slf4j-api/jars/slf4j-api-1.6.2.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.grails/grails-datastore-gorm/jars/grails-datastore-gorm-1.0.0.RELEASE.jar" sourcepath="/GRAILS_HOME/src/java">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/Applications/grails-2.0.0/doc/api"/>
@@ -207,11 +209,6 @@
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.opensymphony.quartz/quartz/jars/quartz-1.6.1.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.apache.shiro/shiro-aspectj/bundles/shiro-aspectj-1.1.0.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.apache.shiro/shiro-spring/bundles/shiro-spring-1.1.0.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/com.yammer.metrics/metrics-core/jars/metrics-core-2.1.2.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.slf4j/slf4j-api/jars/slf4j-api-1.6.4.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/com.yammer.metrics/metrics-servlet/jars/metrics-servlet-2.1.2.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.codehaus.jackson/jackson-mapper-asl/jars/jackson-mapper-asl-1.9.5.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.codehaus.jackson/jackson-core-asl/jars/jackson-core-asl-1.9.5.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.aspectj/aspectjweaver/jars/aspectjweaver-1.6.10.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.aspectj/aspectjrt/jars/aspectjrt-1.6.10.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/cglib/cglib/jars/cglib-2.2.jar"/>
@@ -227,14 +224,12 @@
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/log4j/log4j/bundles/log4j-1.2.16.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.slf4j/jcl-over-slf4j/jars/jcl-over-slf4j-1.6.2.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.slf4j/jul-to-slf4j/jars/jul-to-slf4j-1.6.2.jar"/>
+	<classpathentry kind="var" path="GRAILS_IVYCACHE/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.5.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.hibernate/hibernate-core/jars/hibernate-core-3.6.10.Final.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/antlr/antlr/jars/antlr-2.7.6.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/dom4j/dom4j/jars/dom4j-1.6.1.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.hibernate/hibernate-commons-annotations/jars/hibernate-commons-annotations-3.2.0.Final.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.quartz-scheduler/quartz/jars/quartz-1.8.4.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.8.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/net.sf.ehcache/ehcache-web/jars/ehcache-web-2.0.3.jar"/>
-	<classpathentry kind="var" path="GRAILS_IVYCACHE/redis.clients/jedis/jars/jedis-2.0.0.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.hibernate/hibernate-validator/jars/hibernate-validator-4.1.0.Final.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/javax.validation/validation-api/jars/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/javassist/javassist/jars/javassist-3.12.0.GA.jar"/>
@@ -258,6 +253,5 @@
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.apache.tomcat.embed/tomcat-embed-core/jars/tomcat-embed-core-7.0.16.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.apache.tomcat.embed/tomcat-embed-jasper/jars/tomcat-embed-jasper-7.0.16.jar"/>
 	<classpathentry kind="var" path="GRAILS_IVYCACHE/org.apache.tomcat.embed/tomcat-embed-logging-log4j/jars/tomcat-embed-logging-log4j-7.0.16.jar"/>
-	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
 	<classpathentry kind="output" path="target-eclipse/classes"/>
 </classpath>
