@@ -35,27 +35,27 @@ import i18nfields.I18nFields
  */
 @i18nfields.I18nFields
 class Warranty extends Contact {
-	
+
 	Date startDate
 	Date endDate
 	String code
 	String descriptions
-	
+
 	static i18nFields =["descriptions"]
-	
+
 	static constraints = {
 		importFrom Contact
-		startDate nullable:false, validator:{it <= new Date()} 
-		endDate nullable:false, validator: { val, obj -> 
+		startDate nullable:false, validator:{it <= new Date()}
+		endDate nullable:false, validator: { val, obj ->
 			return (it >= startDate)
-			} 
+		}
 		descriptions nullable: true, blank: true
 	}
-	
+
 	static mapping = {
 		table "memms_equipment_warranty"
 	}
-	
+
 	String toString() {
 		return "EquipmentWarranty[Id=" + id + ", Code=" + code + "]";
 	}
@@ -83,5 +83,5 @@ class Warranty extends Contact {
 		return true;
 	}
 
-	
+
 }
