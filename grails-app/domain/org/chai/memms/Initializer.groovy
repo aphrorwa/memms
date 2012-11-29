@@ -119,7 +119,10 @@ public class Initializer {
 			defaultTechnicianMMCRole.save(failOnError: true, flush:true)
 			
 			def defaultTitulaireHCRole = new Role(name: "Titulaire HC")
-			defaultTitulaireHCRole.addToPermissions("*")
+			defaultTitulaireHCRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
+			defaultTitulaireHCRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home;home:*")
+			defaultTitulaireHCRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultTitulaireHCRole.addToPermissions("provider:getAjaxData;equipmentType:getAjaxData;department:getAjaxData")
 			defaultTitulaireHCRole.save(failOnError: true, flush:true)
 			
 			def defaultHospitalDepartmentRole = new Role(name: "Hospital Department")
