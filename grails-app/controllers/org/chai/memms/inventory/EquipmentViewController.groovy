@@ -79,7 +79,10 @@ class EquipmentViewController extends AbstractController {
 			if(!user.canAccessCalculationLocation(dataLocation)) response.sendError(404)
 			equipments = equipmentService.filterEquipment(dataLocation,null,null,null,null,null,null,null,null,params)
 		}
-		else equipments = equipmentService.getMyEquipments(user,params)
+		else{
+			equipments = equipmentService.getMyEquipments(user,params)
+			
+		}
 		
 		if(request.xhr){
 			 this.ajaxModel(equipments,dataLocation,"")
@@ -112,13 +115,20 @@ class EquipmentViewController extends AbstractController {
 	
 	def search = {
 		DataLocation dataLocation = DataLocation.get(params.int("dataLocation.id"));
-		if (dataLocation == null)
+		if (dataLocation == null){
+			log.debug("datalocation null")
 			response.sendError(404)
+		}
+		dataLocation = user.location
+		log.debug("datalocation null but still goes through")
 
 		adaptParamsForList()
 		def equipments = equipmentService.searchEquipment(params['q'],user,params)
-		if(!request.xhr)
+		if(!request.xhr){
+			log.debug("did not survive request")
 			response.sendError(404)
+		}
+		log.debug("equipments : " + equipments+ ", dataLocation : " +dataLocation)
 		this.ajaxModel(equipments,dataLocation,params['q'])
 	}
 	
