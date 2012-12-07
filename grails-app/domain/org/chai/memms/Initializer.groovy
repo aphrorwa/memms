@@ -107,15 +107,21 @@ public class Initializer {
 			defaultAdminRole.save(failOnError: true)
 			
 			def defaultSystemRole = new Role(name: "System")
-			defaultSystemRole.addToPermissions("*")
 			defaultSystemRole.save(failOnError: true, flush:true)
 			
 			def defaultTechnicianDHRole = new Role(name: "Technician DH")
-			defaultTechnicianDHRole.addToPermissions("*")
+			defaultTechnicianDHRole.addToPermissions("escalate")
+			defaultTechnicianDHRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
+			defaultTechnicianDHRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home;home:*")
+			defaultTechnicianDHRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultTechnicianDHRole.addToPermissions("provider:getAjaxData;equipmentType:getAjaxData;department:getAjaxData")
 			defaultTechnicianDHRole.save(failOnError: true, flush:true)
 			
 			def defaultTechnicianMMCRole = new Role(name: "Technician MMC")
-			defaultTechnicianMMCRole.addToPermissions("*")
+			defaultTechnicianMMCRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
+			defaultTechnicianMMCRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home,reports,admin;home:*")
+			defaultTechnicianMMCRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultTechnicianMMCRole.addToPermissions("provider:*;equipmentType:*;department:*")
 			defaultTechnicianMMCRole.save(failOnError: true, flush:true)
 			
 			def defaultTitulaireHCRole = new Role(name: "Titulaire HC")
@@ -126,7 +132,10 @@ public class Initializer {
 			defaultTitulaireHCRole.save(failOnError: true, flush:true)
 			
 			def defaultHospitalDepartmentRole = new Role(name: "Hospital Department")
-			defaultHospitalDepartmentRole.addToPermissions("*")
+			defaultHospitalDepartmentRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
+			defaultHospitalDepartmentRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home;home:*")
+			defaultHospitalDepartmentRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultHospitalDepartmentRole.addToPermissions("provider:getAjaxData;equipmentType:getAjaxData;department:getAjaxData")
 			defaultHospitalDepartmentRole.save(failOnError: true, flush:true)
 			
 			

@@ -27,6 +27,7 @@
  */
 package org.chai.memms.corrective.maintenance
 
+import org.apache.shiro.SecurityUtils;
 import org.chai.location.CalculationLocation;
 import java.util.Date;
 import java.util.Map;
@@ -133,6 +134,10 @@ class WorkOrderViewController extends AbstractController{
 	}
 	
 	def escalate = {
+		if(!SecurityUtils.subject.isPermitted("escalate")){
+			if(log.debugEnabled()) log.debug("User : " + user + "Doesn't have permission to escalate")
+			response.sendError(404)
+		}
 		WorkOrder order = WorkOrder.get(params.int("order"))
 		def result = false
 		def html = ""
