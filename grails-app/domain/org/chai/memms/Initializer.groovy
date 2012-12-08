@@ -107,6 +107,8 @@ public class Initializer {
 			defaultAdminRole.save(failOnError: true)
 			
 			def defaultSystemRole = new Role(name: "System")
+			defaultSystemRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
+			defaultSystemRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
 			defaultSystemRole.save(failOnError: true, flush:true)
 			
 			def defaultTechnicianDHRole = new Role(name: "Technician DH")
@@ -120,21 +122,24 @@ public class Initializer {
 			def defaultTechnicianMMCRole = new Role(name: "Technician MMC")
 			defaultTechnicianMMCRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
 			defaultTechnicianMMCRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home,reports,admin;home:*")
-			defaultTechnicianMMCRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultTechnicianMMCRole.addToPermissions("workOrder:getWorkOrderClueTipsAjaxData,list,search,escalate,filter,ajaxModel,summaryPage,addProcess,removeProcess,addComment,removeComment")
+			defaultTechnicianMMCRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrderView:*")
 			defaultTechnicianMMCRole.addToPermissions("provider:*;equipmentType:*;department:*")
 			defaultTechnicianMMCRole.save(failOnError: true, flush:true)
 			
 			def defaultTitulaireHCRole = new Role(name: "Titulaire HC")
 			defaultTitulaireHCRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
 			defaultTitulaireHCRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home;home:*")
-			defaultTitulaireHCRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultTitulaireHCRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrderView:*")
+			defaultTitulaireHCRole.addToPermissions("workOrder:getWorkOrderClueTipsAjaxData,list,search,filter,ajaxModel,summaryPage,addProcess,removeProcess,addComment,removeComment,create")
 			defaultTitulaireHCRole.addToPermissions("provider:getAjaxData;equipmentType:getAjaxData;department:getAjaxData")
 			defaultTitulaireHCRole.save(failOnError: true, flush:true)
 			
 			def defaultHospitalDepartmentRole = new Role(name: "Hospital Department")
 			defaultHospitalDepartmentRole.addToPermissions("auth:*;Account:*;equipment:*;equipmentView:*;notificationEquipment:*;notificationWorkOrder:*")
 			defaultHospitalDepartmentRole.addToPermissions("menu:inventory,maintenance,correctivemaintenance,preventivemaintenance,home;home:*")
-			defaultHospitalDepartmentRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrder:*;workOrderView:*")
+			defaultHospitalDepartmentRole.addToPermissions("equipment:*;Account:*;taskList:*;workOrderView:*")
+			defaultHospitalDepartmentRole.addToPermissions("workOrder:getWorkOrderClueTipsAjaxData,list,search,filter,ajaxModel,summaryPage,addProcess,removeProcess,addComment,removeComment,create")
 			defaultHospitalDepartmentRole.addToPermissions("provider:getAjaxData;equipmentType:getAjaxData;department:getAjaxData")
 			defaultHospitalDepartmentRole.save(failOnError: true, flush:true)
 			
@@ -178,7 +183,7 @@ public class Initializer {
 			techDH.addToRoles(defaultTechnicianDHRole)
 			techDH.save(failOnError: true, flush:true)
 			
-			def techMMC= new User(userType: UserType.TECHNICIANMMC, location: Location.findByCode(HUYE), username: "techMMC",
+			def techMMC= new User(userType: UserType.TECHNICIANMMC, location: Location.findByCode(RWANDA), username: "techMMC",
 				firstname: "Technician", lastname: "MMC", email:'techMMC@memms.org', passwordHash: new Sha256Hash("techMMC").toHex(), active: true,
 				confirmed: true, uuid:'techMMC', defaultLanguage:'en', phoneNumber: '+250 11 111 11 11', organisation:'org')
 			techMMC.addToRoles(defaultTechnicianMMCRole)

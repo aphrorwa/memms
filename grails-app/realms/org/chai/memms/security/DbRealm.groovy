@@ -76,6 +76,7 @@ class DbRealm {
     }
 
     def isPermitted(principal, requiredPermission) {
+		log.debug("checking permisions principal: " + principal + " , requiredPermission: " + requiredPermission)
         // Does the user have the given permission directly associated
         // with himself?
         //

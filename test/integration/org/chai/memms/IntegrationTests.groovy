@@ -225,7 +225,9 @@ abstract class IntegrationTests extends IntegrationSpec {
 		return new User(userType: UserType.SYSTEM, code: username, username: username, permissionString: '', passwordHash:'', uuid: uuid, location: location, firstname: 'system', lastname: 'last', organisation: 'org', phoneNumber: '+250 11 111 11 11').save(failOnError: true)
 	}
 	static def setupSecurityManager(def user) {
-		def subject = [getPrincipal: { user?.uuid }, isAuthenticated: { user==null?false:true }, login: { token -> null }] as Subject
+		//TODO added "isPermitted:{ permission -> true}" to add the interface Subject's permission checks by shiro. This enables shiro tags to be run while
+		//in tests. NB this can be used to test shiro permission restrictions if need be.
+		def subject = [getPrincipal: { user?.uuid }, isAuthenticated: { user==null?false:true }, login: { token -> null }, isPermitted:{ permission -> true}] as Subject
 		ThreadContext.put( ThreadContext.SECURITY_MANAGER_KEY, [ getSubject: { subject } ] as SecurityManager )
 		SecurityUtils.metaClass.static.getSubject = { subject }
 		WebUtils.metaClass.static.getSavedRequest = { ServletRequest request -> null }

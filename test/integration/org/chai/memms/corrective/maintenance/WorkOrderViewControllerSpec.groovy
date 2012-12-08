@@ -27,6 +27,7 @@
  */
 package org.chai.memms.corrective.maintenance
 
+import org.apache.shiro.SecurityUtils;
 import org.chai.memms.Initializer;
 import org.chai.memms.IntegrationTests;
 import org.chai.memms.corrective.maintenance.WorkOrder;

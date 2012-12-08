@@ -12,7 +12,9 @@
 			<g:sortableColumn property="openOn" defaultOrder="asc" title="${message(code: 'work.order.openOn.label')}" params="[q:q,'equipment.id':equipment?.id,'dataLocation.id':dataLocation?.id]" />
 			<g:sortableColumn property="closedOn" defaultOrder="asc" title="${message(code: 'work.order.closedOn.label')}" params="[q:q,'equipment.id':equipment?.id,'dataLocation.id':dataLocation?.id]" />
 			<th><g:message code="work.order.description.label"/></th>
+			<shiro:hasPermission permission="workOrder:create">
 				<th><g:message code="work.order.status.escalation.label"/></th>
+			</shiro:hasPermission>
 			<th><g:message code="work.order.messages.label"/></th>
 		</tr>
 	</thead>
