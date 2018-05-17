@@ -114,7 +114,7 @@ public class WorkOrder extends MaintenanceOrder{
 		travelTime nullable: true, validator:{ 
 			if(it!=null) return (it.numberOfMinutes > 0)	
 		}
-		description nullable: false, blank: false
+		description nullable: true, blank: false
 		returnedTo nullable: true, blank: true
 		
 		returnedOn nullable: true, validator:{it <= new Date()}
